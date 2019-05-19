@@ -1,0 +1,68 @@
+#include<stdio.h>
+#include<math.h>
+int pal2(int y);
+int pal1(int x)
+{
+    int r1,rev1=0;
+    int aa = x;
+    while(x!=0)
+    {
+        r1=x%10;
+        rev1=rev1*10+r1;
+        x=x/10;
+    }
+    if(rev1 == aa)
+    return aa;
+    else
+     aa=aa+1;
+     return pal1(aa);
+}
+int pal2(int y)
+{
+    int r2,rev2=0,bb;
+    bb=y;
+    while(y!=0)
+    {
+        r2=y%10;
+        rev2=rev2*10+r2;
+        y=y/10;
+    }
+    if(rev2 == bb)
+    return bb;
+    else
+     bb=bb-1;
+     return pal2(bb);
+}
+int main()
+{
+    int n,rev=0,r,a,b,c,d,e;
+    scanf("%d",&n);
+    a=n;
+    
+    while(n>0)
+    {
+        r=n%10;
+        rev=rev*10+r;
+        n=n/10;
+    }
+    if(rev == a)
+    {
+        printf("%d",rev);
+    }
+    else
+    {
+        b=pal1(a+1);
+        c=pal2(a-1);
+        d=abs(a-b);
+        e=abs(a-c);
+    if (d < e)
+    {
+        printf("%d",b);
+    }
+    else
+    {
+        printf("%d",c);
+    }
+    }
+    return 0;
+}
