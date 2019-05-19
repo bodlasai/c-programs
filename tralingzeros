@@ -1,0 +1,19 @@
+The problem is as follows.
+Given a number, you should tell how many trailing zeros are present in the factorial of that number.
+
+
+
+#include<stdio.h>
+int main()
+{
+    int n,c,i,t=0;
+    scanf("%d",&n);
+    c=5;
+    while((n/c)>=1)
+    {
+        t=t+n/c;
+        c=c*5;
+    }
+    printf("%d",t);
+    return 0;
+}
