@@ -1,0 +1,48 @@
+#include<stdio.h>
+void findzero(int a[],int n,int z)
+{
+    int c=0,end=0,start=0,bw=0,bws=0,i;
+    while(end<n)
+    {
+        if(c <= z)
+        {
+            if(a[end]==0)
+            {
+                c=c+1;
+            }
+            end++;
+        }
+        if(c > z)
+        {
+            if(a[start] == 0)
+            {
+                c--;
+            }
+            start++;
+        }
+        if(end-start>bw)
+        {
+            bw=end-start;
+            bws=start;
+        }
+    }
+    for(i=bws;i<bw;++i)
+    {
+        if(a[i]==0)
+        {
+            printf("%d",i);
+        }
+    }
+}
+int main()
+{
+    int a[10]={0,1,0,1,1,0,1};
+    int n,z;
+    scanf("%d %d",&n,&z);
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    findzero(a,n,z);
+    return 0;
+}
