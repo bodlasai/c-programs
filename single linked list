@@ -1,0 +1,72 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node 
+{
+    int data;
+    struct node * link;
+};
+struct node* root=NULL;
+void append();
+int length();
+void display();
+int main()
+{
+   int s;
+   void append();
+   s=length();
+   
+    return 0;
+}
+void append()
+{
+    struct node * temp;
+    temp=(struct node*)malloc(sizeof(struct node));
+    scanf("%d",&temp->data);
+    temp->link=NULL;
+    if(root == NULL)
+    {
+        root=temp;
+    }
+    else
+    {
+        struct node* p;
+        p=root;
+        while(p->link!= NULL)
+        {
+            p=p->link;
+        }
+        p->link=temp;
+    }
+}
+int length()
+{
+    int c=0;
+    struct node *len;
+    len=root;
+    while(len !=NULL)
+    {
+        c=c+1;
+        len=len->link;
+    }
+    return c;
+}
+
+void display()
+{
+    struct node *temp;
+    temp=root;
+    if(temp == NULL)
+    {
+        printf("no nodes to diaplay");
+    }
+    
+    else
+    {
+    while(temp!=NULL)
+    {
+        printf("%d",temp->data);
+        temp=temp->link;
+    }
+    printf("\n\n");
+    }
+}
