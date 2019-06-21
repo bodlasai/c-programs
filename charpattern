@@ -1,0 +1,31 @@
+#include<stdio.h>
+int find_pat(char *str)
+{
+    char last=str[0];
+    int i=1,c=0;
+    while(i<strlen(str))
+    {
+        if(str[i]=='1' && last == '0')
+        {
+            while(str[i]=='1')
+            {i++;}
+            
+            if(str[i]=='0')
+            {c++;}
+        }
+        last=str[i];
+        i++;
+    }
+    return c;
+}
+int main()
+{
+    char str[50];
+    gets(str);
+    printf("%d",find_pat(str));
+    return 0;
+}
+
+01101111010 – count = 1
+01101111010 – count = 2
+01101111010 – count = 3
