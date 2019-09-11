@@ -1,0 +1,46 @@
+Amcat problem cells and days(important)
+input->1 0 0 0 0 1 0 0
+days->1
+output->0 1 0 0 1 0 1 0
+
+
+
+
+#include<stdio.h>
+int *cellcount(int *arr,int size,int days)
+{
+    int i,prev,next;
+    while(days)
+    {
+        prev=0;
+        for(i=0;i<size-1;i++)
+        {
+            next=arr[i];
+            arr[i]=prev^arr[i+1];
+            prev=next;
+        }
+        arr[i]=prev^0;
+        days--;
+    }
+    return arr;
+}
+void display(int arr[],int size)
+{
+    int i;
+    for(i=0;i<size;i++)
+    {
+        printf("%d",arr[i]);
+    }
+}
+int main()
+{
+    int a[10],size=8,days=1;
+    int i;
+    for(i=0;i<size;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    cellcount(a,size,days);
+    display(a,size);
+    return 0;
+}
