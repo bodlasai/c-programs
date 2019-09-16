@@ -1,0 +1,28 @@
+#include<stdio.h>
+int main()
+{
+    char str[10];
+    int i,j,c,a;
+    scanf("%[^\n]s",str);
+    int len=strlen(str);
+    for(i=0;str[i];i++)
+    {
+        if(str[i]>='a' && str[i]<='z')
+        {
+            c=str[i];
+        }
+        else
+        {
+            for(i=0; i<len; i++)
+            {
+		    dec = dec * 10 + ( num[i] - '0' );
+	        }
+        }
+    }
+    int sum=c+dec;
+    printf("%c",sum);
+    return 0;
+}
+
+d 3
+G
